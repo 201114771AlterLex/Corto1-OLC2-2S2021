@@ -1,0 +1,261 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ENTERO
+
+Grammar
+
+Rule 0     S' -> S
+Rule 1     S -> E
+Rule 2     E -> E MAS T
+Rule 3     E -> E MENOS T
+Rule 4     E -> T
+Rule 5     T -> T POR F
+Rule 6     T -> T DIVIDE F
+Rule 7     T -> F
+Rule 8     F -> PARIZQ E PARDER
+Rule 9     F -> ID
+
+Terminals, with rules where they appear
+
+DIVIDE               : 6
+ENTERO               : 
+ID                   : 9
+MAS                  : 2
+MENOS                : 3
+PARDER               : 8
+PARIZQ               : 8
+POR                  : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+E                    : 1 2 3 8
+F                    : 5 6 7
+S                    : 0
+T                    : 2 3 4 5 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . S
+    (1) S -> . E
+    (2) E -> . E MAS T
+    (3) E -> . E MENOS T
+    (4) E -> . T
+    (5) T -> . T POR F
+    (6) T -> . T DIVIDE F
+    (7) T -> . F
+    (8) F -> . PARIZQ E PARDER
+    (9) F -> . ID
+
+    PARIZQ          shift and go to state 5
+    ID              shift and go to state 6
+
+    S                              shift and go to state 1
+    E                              shift and go to state 2
+    T                              shift and go to state 3
+    F                              shift and go to state 4
+
+state 1
+
+    (0) S' -> S .
+
+
+
+state 2
+
+    (1) S -> E .
+    (2) E -> E . MAS T
+    (3) E -> E . MENOS T
+
+    $end            reduce using rule 1 (S -> E .)
+    MAS             shift and go to state 7
+    MENOS           shift and go to state 8
+
+
+state 3
+
+    (4) E -> T .
+    (5) T -> T . POR F
+    (6) T -> T . DIVIDE F
+
+    MAS             reduce using rule 4 (E -> T .)
+    MENOS           reduce using rule 4 (E -> T .)
+    $end            reduce using rule 4 (E -> T .)
+    PARDER          reduce using rule 4 (E -> T .)
+    POR             shift and go to state 9
+    DIVIDE          shift and go to state 10
+
+
+state 4
+
+    (7) T -> F .
+
+    POR             reduce using rule 7 (T -> F .)
+    DIVIDE          reduce using rule 7 (T -> F .)
+    MAS             reduce using rule 7 (T -> F .)
+    MENOS           reduce using rule 7 (T -> F .)
+    $end            reduce using rule 7 (T -> F .)
+    PARDER          reduce using rule 7 (T -> F .)
+
+
+state 5
+
+    (8) F -> PARIZQ . E PARDER
+    (2) E -> . E MAS T
+    (3) E -> . E MENOS T
+    (4) E -> . T
+    (5) T -> . T POR F
+    (6) T -> . T DIVIDE F
+    (7) T -> . F
+    (8) F -> . PARIZQ E PARDER
+    (9) F -> . ID
+
+    PARIZQ          shift and go to state 5
+    ID              shift and go to state 6
+
+    E                              shift and go to state 11
+    T                              shift and go to state 3
+    F                              shift and go to state 4
+
+state 6
+
+    (9) F -> ID .
+
+    POR             reduce using rule 9 (F -> ID .)
+    DIVIDE          reduce using rule 9 (F -> ID .)
+    MAS             reduce using rule 9 (F -> ID .)
+    MENOS           reduce using rule 9 (F -> ID .)
+    $end            reduce using rule 9 (F -> ID .)
+    PARDER          reduce using rule 9 (F -> ID .)
+
+
+state 7
+
+    (2) E -> E MAS . T
+    (5) T -> . T POR F
+    (6) T -> . T DIVIDE F
+    (7) T -> . F
+    (8) F -> . PARIZQ E PARDER
+    (9) F -> . ID
+
+    PARIZQ          shift and go to state 5
+    ID              shift and go to state 6
+
+    T                              shift and go to state 12
+    F                              shift and go to state 4
+
+state 8
+
+    (3) E -> E MENOS . T
+    (5) T -> . T POR F
+    (6) T -> . T DIVIDE F
+    (7) T -> . F
+    (8) F -> . PARIZQ E PARDER
+    (9) F -> . ID
+
+    PARIZQ          shift and go to state 5
+    ID              shift and go to state 6
+
+    T                              shift and go to state 13
+    F                              shift and go to state 4
+
+state 9
+
+    (5) T -> T POR . F
+    (8) F -> . PARIZQ E PARDER
+    (9) F -> . ID
+
+    PARIZQ          shift and go to state 5
+    ID              shift and go to state 6
+
+    F                              shift and go to state 14
+
+state 10
+
+    (6) T -> T DIVIDE . F
+    (8) F -> . PARIZQ E PARDER
+    (9) F -> . ID
+
+    PARIZQ          shift and go to state 5
+    ID              shift and go to state 6
+
+    F                              shift and go to state 15
+
+state 11
+
+    (8) F -> PARIZQ E . PARDER
+    (2) E -> E . MAS T
+    (3) E -> E . MENOS T
+
+    PARDER          shift and go to state 16
+    MAS             shift and go to state 7
+    MENOS           shift and go to state 8
+
+
+state 12
+
+    (2) E -> E MAS T .
+    (5) T -> T . POR F
+    (6) T -> T . DIVIDE F
+
+    MAS             reduce using rule 2 (E -> E MAS T .)
+    MENOS           reduce using rule 2 (E -> E MAS T .)
+    $end            reduce using rule 2 (E -> E MAS T .)
+    PARDER          reduce using rule 2 (E -> E MAS T .)
+    POR             shift and go to state 9
+    DIVIDE          shift and go to state 10
+
+
+state 13
+
+    (3) E -> E MENOS T .
+    (5) T -> T . POR F
+    (6) T -> T . DIVIDE F
+
+    MAS             reduce using rule 3 (E -> E MENOS T .)
+    MENOS           reduce using rule 3 (E -> E MENOS T .)
+    $end            reduce using rule 3 (E -> E MENOS T .)
+    PARDER          reduce using rule 3 (E -> E MENOS T .)
+    POR             shift and go to state 9
+    DIVIDE          shift and go to state 10
+
+
+state 14
+
+    (5) T -> T POR F .
+
+    POR             reduce using rule 5 (T -> T POR F .)
+    DIVIDE          reduce using rule 5 (T -> T POR F .)
+    MAS             reduce using rule 5 (T -> T POR F .)
+    MENOS           reduce using rule 5 (T -> T POR F .)
+    $end            reduce using rule 5 (T -> T POR F .)
+    PARDER          reduce using rule 5 (T -> T POR F .)
+
+
+state 15
+
+    (6) T -> T DIVIDE F .
+
+    POR             reduce using rule 6 (T -> T DIVIDE F .)
+    DIVIDE          reduce using rule 6 (T -> T DIVIDE F .)
+    MAS             reduce using rule 6 (T -> T DIVIDE F .)
+    MENOS           reduce using rule 6 (T -> T DIVIDE F .)
+    $end            reduce using rule 6 (T -> T DIVIDE F .)
+    PARDER          reduce using rule 6 (T -> T DIVIDE F .)
+
+
+state 16
+
+    (8) F -> PARIZQ E PARDER .
+
+    POR             reduce using rule 8 (F -> PARIZQ E PARDER .)
+    DIVIDE          reduce using rule 8 (F -> PARIZQ E PARDER .)
+    MAS             reduce using rule 8 (F -> PARIZQ E PARDER .)
+    MENOS           reduce using rule 8 (F -> PARIZQ E PARDER .)
+    $end            reduce using rule 8 (F -> PARIZQ E PARDER .)
+    PARDER          reduce using rule 8 (F -> PARIZQ E PARDER .)
+
