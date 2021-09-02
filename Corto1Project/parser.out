@@ -1,8 +1,4 @@
-Created by PLY version 3.11 (http://www.dabeaz.com/ply)
-
-Unused terminals:
-
-    ENTERO
+Created by PLY version 3.10 (http://www.dabeaz.com/ply)
 
 Grammar
 
@@ -16,11 +12,12 @@ Rule 6     T -> T DIVIDE F
 Rule 7     T -> F
 Rule 8     F -> PARIZQ E PARDER
 Rule 9     F -> ID
+Rule 10    F -> ENTERO
 
 Terminals, with rules where they appear
 
 DIVIDE               : 6
-ENTERO               : 
+ENTERO               : 10
 ID                   : 9
 MAS                  : 2
 MENOS                : 3
@@ -50,9 +47,11 @@ state 0
     (7) T -> . F
     (8) F -> . PARIZQ E PARDER
     (9) F -> . ID
+    (10) F -> . ENTERO
 
     PARIZQ          shift and go to state 5
     ID              shift and go to state 6
+    ENTERO          shift and go to state 7
 
     S                              shift and go to state 1
     E                              shift and go to state 2
@@ -72,8 +71,8 @@ state 2
     (3) E -> E . MENOS T
 
     $end            reduce using rule 1 (S -> E .)
-    MAS             shift and go to state 7
-    MENOS           shift and go to state 8
+    MAS             shift and go to state 8
+    MENOS           shift and go to state 9
 
 
 state 3
@@ -86,8 +85,8 @@ state 3
     MENOS           reduce using rule 4 (E -> T .)
     $end            reduce using rule 4 (E -> T .)
     PARDER          reduce using rule 4 (E -> T .)
-    POR             shift and go to state 9
-    DIVIDE          shift and go to state 10
+    POR             shift and go to state 10
+    DIVIDE          shift and go to state 11
 
 
 state 4
@@ -113,11 +112,13 @@ state 5
     (7) T -> . F
     (8) F -> . PARIZQ E PARDER
     (9) F -> . ID
+    (10) F -> . ENTERO
 
     PARIZQ          shift and go to state 5
     ID              shift and go to state 6
+    ENTERO          shift and go to state 7
 
-    E                              shift and go to state 11
+    E                              shift and go to state 12
     T                              shift and go to state 3
     F                              shift and go to state 4
 
@@ -135,20 +136,34 @@ state 6
 
 state 7
 
+    (10) F -> ENTERO .
+
+    POR             reduce using rule 10 (F -> ENTERO .)
+    DIVIDE          reduce using rule 10 (F -> ENTERO .)
+    MAS             reduce using rule 10 (F -> ENTERO .)
+    MENOS           reduce using rule 10 (F -> ENTERO .)
+    $end            reduce using rule 10 (F -> ENTERO .)
+    PARDER          reduce using rule 10 (F -> ENTERO .)
+
+
+state 8
+
     (2) E -> E MAS . T
     (5) T -> . T POR F
     (6) T -> . T DIVIDE F
     (7) T -> . F
     (8) F -> . PARIZQ E PARDER
     (9) F -> . ID
+    (10) F -> . ENTERO
 
     PARIZQ          shift and go to state 5
     ID              shift and go to state 6
+    ENTERO          shift and go to state 7
 
-    T                              shift and go to state 12
+    T                              shift and go to state 13
     F                              shift and go to state 4
 
-state 8
+state 9
 
     (3) E -> E MENOS . T
     (5) T -> . T POR F
@@ -156,47 +171,53 @@ state 8
     (7) T -> . F
     (8) F -> . PARIZQ E PARDER
     (9) F -> . ID
+    (10) F -> . ENTERO
 
     PARIZQ          shift and go to state 5
     ID              shift and go to state 6
+    ENTERO          shift and go to state 7
 
-    T                              shift and go to state 13
+    T                              shift and go to state 14
     F                              shift and go to state 4
 
-state 9
+state 10
 
     (5) T -> T POR . F
     (8) F -> . PARIZQ E PARDER
     (9) F -> . ID
+    (10) F -> . ENTERO
 
     PARIZQ          shift and go to state 5
     ID              shift and go to state 6
-
-    F                              shift and go to state 14
-
-state 10
-
-    (6) T -> T DIVIDE . F
-    (8) F -> . PARIZQ E PARDER
-    (9) F -> . ID
-
-    PARIZQ          shift and go to state 5
-    ID              shift and go to state 6
+    ENTERO          shift and go to state 7
 
     F                              shift and go to state 15
 
 state 11
 
+    (6) T -> T DIVIDE . F
+    (8) F -> . PARIZQ E PARDER
+    (9) F -> . ID
+    (10) F -> . ENTERO
+
+    PARIZQ          shift and go to state 5
+    ID              shift and go to state 6
+    ENTERO          shift and go to state 7
+
+    F                              shift and go to state 16
+
+state 12
+
     (8) F -> PARIZQ E . PARDER
     (2) E -> E . MAS T
     (3) E -> E . MENOS T
 
-    PARDER          shift and go to state 16
-    MAS             shift and go to state 7
-    MENOS           shift and go to state 8
+    PARDER          shift and go to state 17
+    MAS             shift and go to state 8
+    MENOS           shift and go to state 9
 
 
-state 12
+state 13
 
     (2) E -> E MAS T .
     (5) T -> T . POR F
@@ -206,11 +227,11 @@ state 12
     MENOS           reduce using rule 2 (E -> E MAS T .)
     $end            reduce using rule 2 (E -> E MAS T .)
     PARDER          reduce using rule 2 (E -> E MAS T .)
-    POR             shift and go to state 9
-    DIVIDE          shift and go to state 10
+    POR             shift and go to state 10
+    DIVIDE          shift and go to state 11
 
 
-state 13
+state 14
 
     (3) E -> E MENOS T .
     (5) T -> T . POR F
@@ -220,11 +241,11 @@ state 13
     MENOS           reduce using rule 3 (E -> E MENOS T .)
     $end            reduce using rule 3 (E -> E MENOS T .)
     PARDER          reduce using rule 3 (E -> E MENOS T .)
-    POR             shift and go to state 9
-    DIVIDE          shift and go to state 10
+    POR             shift and go to state 10
+    DIVIDE          shift and go to state 11
 
 
-state 14
+state 15
 
     (5) T -> T POR F .
 
@@ -236,7 +257,7 @@ state 14
     PARDER          reduce using rule 5 (T -> T POR F .)
 
 
-state 15
+state 16
 
     (6) T -> T DIVIDE F .
 
@@ -248,7 +269,7 @@ state 15
     PARDER          reduce using rule 6 (T -> T DIVIDE F .)
 
 
-state 16
+state 17
 
     (8) F -> PARIZQ E PARDER .
 

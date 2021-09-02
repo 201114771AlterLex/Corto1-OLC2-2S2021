@@ -1,4 +1,4 @@
-# CORTO No. 1 
+# CORTO No. 1  
 
 ---
 
@@ -17,7 +17,7 @@ Bitbucket: <https://bitbucket.org/AlterLex/>
 ## Course data
 
 ---
-Course: Organizacion de lenguajes y compiladores 2 
+Course: Organizacion de lenguajes y compiladores 2  
 First Career: Ingenieria en ciencias y sistemas  
 Second Carrer: Ingenieria industrial  
 Cursado: Segundo semestre 2021  
