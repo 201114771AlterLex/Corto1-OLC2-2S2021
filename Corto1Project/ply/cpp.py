@@ -9,15 +9,6 @@
 # -----------------------------------------------------------------------------
 from __future__ import generators
 
-import sys
-
-# Some Python 3 compatibility shims
-if sys.version_info.major < 3:
-    STRING_TYPES = (str, unicode)
-else:
-    STRING_TYPES = str
-    xrange = range
-
 # -----------------------------------------------------------------------------
 # Default preprocessor lexer definitions.   These tokens are enough to get
 # a basic preprocessor working.   Other modules may import these if they want
@@ -77,7 +68,6 @@ def t_CPP_COMMENT2(t):
     r'(//.*?(\n|$))'
     # replace with '/n'
     t.type = 'CPP_WS'; t.value = '\n'
-    return t
     
 def t_error(t):
     t.type = t.value[0]
@@ -600,7 +590,7 @@ class Preprocessor(object):
         expr = expr.replace("!"," not ")
         try:
             result = eval(expr)
-        except Exception:
+        except StandardError:
             self.error(self.source,tokens[0].lineno,"Couldn't evaluate expression")
             result = 0
         return result
@@ -791,7 +781,7 @@ class Preprocessor(object):
     # ----------------------------------------------------------------------
 
     def define(self,tokens):
-        if isinstance(tokens,STRING_TYPES):
+        if isinstance(tokens,(str,unicode)):
             tokens = self.tokenize(tokens)
 
         linetok = tokens
