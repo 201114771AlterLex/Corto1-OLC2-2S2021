@@ -26,12 +26,14 @@ Institution: USAC
 ## TEST
 
 ---
-![Test Image 1](https://github.com/201114771AlterLex/Corto1-OLC2-2S2021/tree/main/Corto1Project/image/Test1.png?raw=true)
+#### TEST 1
 
-![Test Image 2](https://github.com/201114771AlterLex/Corto1-OLC2-2S2021/tree/main/Corto1Project/image/Test2.png)
-
-![Test Image 3](https://github.com/201114771AlterLex/Corto1-OLC2-2S2021/tree/main/Corto1Project/image/Test3.png)
-
-![Test Image 4](https://github.com/201114771AlterLex/Corto1-OLC2-2S2021/tree/main/Corto1Project/image/Test4.png)
-
-![Test Image 5](https://github.com/201114771AlterLex/Corto1-OLC2-2S2021/tree/main/Corto1Project/image/Test5.png)
+![Test 1](/Corto1Project/image/Test1.png?raw=true "Test 1")
+#### TEST 2
+![Test 2](/Corto1Project/image/Test2.png?raw=true "Test 2")
+#### TEST 3
+![Test 3](/Corto1Project/image/Test3.png?raw=true "Test 3")
+##### TEST 4
+![Test 4](/Corto1Project/image/Test4.png?raw=true "Test 4")
+### TEST 5
+![Test 5](/Corto1Project/image/Test5.png?raw=true "Test 5")
