@@ -26,7 +26,7 @@ Institution: USAC
 ## TEST
 
 ---
-![Test Image 1](https://github.com/201114771AlterLex/Corto1-OLC2-2S2021/tree/main/Corto1Project/image/Test1.png)
+![Test Image 1](https://github.com/201114771AlterLex/Corto1-OLC2-2S2021/tree/main/Corto1Project/image/Test1.png?raw=true)
 
 ![Test Image 2](https://github.com/201114771AlterLex/Corto1-OLC2-2S2021/tree/main/Corto1Project/image/Test2.png)
 
