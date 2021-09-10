@@ -2,15 +2,128 @@ import ply.yacc as Tyacc
 from Grammar import tokens,Scann
 
 precedence = (
+    ('left', 'AND', 'OR'),
+    ('left', 'MAYOR', 'MENOR','MAYORIGUAL','MENORIGUAL','IGUALQUE','DIFERENTE'),
      ('left', 'MAS', 'MENOS'),
      ('left', 'POR', 'DIVIDE'),
  )
 class TC3D:
     def __init__(self):
+        self.LT= []
+        self.LF= []
+        self.LO= []
         self.TMP=None
         self.C3D=None
 
 Titerator=0
+Llabel=0
+
+"""
+def p_Incio(p):
+    'INICIO : S'
+    pass
+
+def p_ASIGNA(p):
+    'ASIGNA : ID IGUAL '
+    pass
+"""
+
+def p_PROR(p):
+    pass
+
+def p_PRAND(p):
+    pass
+
+
+def p_LOGICUNIT(p):
+    '''LOGICUNIT : NOT LOGICUNIT
+            | PARIZQ LOGICUNIT PARDER
+            | REL
+            | VTRUE
+            | VFALSE'''
+    if len(p)==3:
+        p[0]=TC3D()
+        p[0].LT=p[2].LT
+        p[0].LF=p[2].LF
+        p[0].LO=p[2].LO
+        p[0].TMP=p[2].TMP
+        p[0].C3D=p[2].C3D
+    elif len(p)==2:
+
+    else:
+        if p[1]=='TRUE':
+              pass
+        elif p[1]=='FALSE':
+            pass
+        else:
+              pass
+
+def p_REL(p):
+    '''REL : S MAYOR S
+            | S MENOR S 
+            | S MAYORIGUAL S
+            | S MENORIGUAL S
+            | S IGUALQUE S
+            | S DIFERENTE S
+            | PARIZQ REL PARDER
+            | S'''
+    global Titerator
+    global Llabel
+    if len(p)==4:
+        Titerator+=1
+        p[0]=TC3D()
+        p[0].TMP='T'+str(Titerator)
+        if p[2]=='>':
+            p[0].C3D=p[1].C3D+'\n'+p[3].C3D+'\n'
+            Llabel+=3
+            p[0].LT.append('L'+str(Llabel-2))
+            p[0].LF.append('L'+str(Llabel-1))
+            p[0].LO.append('L'+str(Llabel))
+            p[0].C3D+='IF '+p[1].TMP+'>'+p[3].TMP+' goto L'+str(Llabel-2)+'\n'+'goto L'+str(Llabel-1)+'\n'
+        elif p[2]=='<':
+            p[0].C3D=p[1].C3D+'\n'+p[3].C3D+'\n'
+            Llabel+=3
+            p[0].LT.append('L'+str(Llabel-2))
+            p[0].LF.append('L'+str(Llabel-1))
+            p[0].LO.append('L'+str(Llabel))
+            p[0].C3D+='IF '+p[1].TMP+'<'+p[3].TMP+' goto L'+str(Llabel-2)+'\n'+'goto L'+str(Llabel-1)+'\n'
+        elif p[2]=='>=':
+            p[0].C3D=p[1].C3D+'\n'+p[3].C3D+'\n'
+            Llabel+=3
+            p[0].LT.append('L'+str(Llabel-2))
+            p[0].LF.append('L'+str(Llabel-1))
+            p[0].LO.append('L'+str(Llabel))
+            p[0].C3D+='IF '+p[1].TMP+'>='+p[3].TMP+' goto L'+str(Llabel-2)+'\n'+'goto L'+str(Llabel-1)+'\n'
+        elif p[2]=='<=':
+            p[0].C3D=p[1].C3D+'\n'+p[3].C3D+'\n'
+            Llabel+=3
+            p[0].LT.append('L'+str(Llabel-2))
+            p[0].LF.append('L'+str(Llabel-1))
+            p[0].LO.append('L'+str(Llabel))
+            p[0].C3D+='IF '+p[1].TMP+'<='+p[3].TMP+' goto L'+str(Llabel-2)+'\n'+'goto L'+str(Llabel-1)+'\n'
+        elif p[2]=='==':
+            p[0].C3D=p[1].C3D+'\n'+p[3].C3D+'\n'
+            Llabel+=3
+            p[0].LT.append('L'+str(Llabel-2))
+            p[0].LF.append('L'+str(Llabel-1))
+            p[0].LO.append('L'+str(Llabel))
+            p[0].C3D+='IF '+p[1].TMP+'=='+p[3].TMP+' goto L'+str(Llabel-2)+'\n'+'goto L'+str(Llabel-1)+'\n'
+        elif p[2]=='!=':
+            p[0].C3D=p[1].C3D+'\n'+p[3].C3D+'\n'
+            Llabel+=3
+            p[0].LT.append('L'+str(Llabel-2))
+            p[0].LF.append('L'+str(Llabel-1))
+            p[0].LO.append('L'+str(Llabel))
+            p[0].C3D+='IF '+p[1].TMP+'!='+p[3].TMP+' goto L'+str(Llabel-2)+'\n'+'goto L'+str(Llabel-1)+'\n'
+        else:
+            p[0]=p[2]
+            return
+        print(p[0].C3D)
+    else:
+        p[0]=TC3D()
+        p[0]=p[1]
+        print(p[0].C3D)
+
 
 def p_S(p):
     'S : E'
@@ -19,7 +132,7 @@ def p_S(p):
     Titerator+=1
     p[0].TMP='T'+str(Titerator)
     p[0].C3D=p[1].C3D+p[0].TMP+'='+p[1].TMP
-    print(p[0].C3D)
+    #print(p[0].C3D)
     #print("S")
 
 def p_E(p):
@@ -92,7 +205,7 @@ def p_error(p):
     print("Error sintactico"+str(p))
 
 
-parser = Tyacc.yacc(start='S')
+parser = Tyacc.yacc(start='LOGICUNIT')
 
 f=open("/home/alterlex/Documentos/Corto1-OLC2-2S2021/Corto1Project/Test.t","r")
 finput=f.read()
