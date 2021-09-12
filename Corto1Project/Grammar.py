@@ -7,7 +7,7 @@ tokens = [
     'DIFERENTE',
     'MAYOR',
     'MENOR',
-    'IGUAL',
+#    'IGUAL',
     'MAS',
     'MENOS',
     'POR',
@@ -38,7 +38,7 @@ t_IGUALQUE = r'=='
 t_MAYOR = r'>'
 t_MENOR = r'<'
 t_DIFERENTE = r'!='
-t_IGUAL = r'='
+#t_IGUAL = r'='
 t_MAS = r'\+'
 t_MENOS = r'-'
 t_POR = r'\*'

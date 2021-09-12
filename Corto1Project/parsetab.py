@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'LOGICUNITleftANDORleftMAYORMENORMAYORIGUALMENORIGUALIGUALQUEDIFERENTEleftMASMENOSleftPORDIVIDEAND DIFERENTE DIVIDE ENTERO ID IGUAL IGUALQUE MAS MAYOR MAYORIGUAL MENOR MENORIGUAL MENOS NOT OR PARDER PARIZQ POR VFALSE VTRUELOGICUNIT : NOT LOGICUNIT\n            | PARIZQ LOGICUNIT PARDER\n            | REL\n            | VTRUE\n            | VFALSEREL : S MAYOR S\n            | S MENOR S \n            | S MAYORIGUAL S\n            | S MENORIGUAL S\n            | S IGUALQUE S\n            | S DIFERENTE S\n            | PARIZQ REL PARDER\n            | SS : EE : E MAS T\n         | E MENOS T \n         | TT : T POR F\n         | T DIVIDE F \n         | FF : PARIZQ E PARDER\n         | ID\n         | ENTERO'
+_lr_signature = 'INICIOleftANDORleftMAYORMENORMAYORIGUALMENORIGUALIGUALQUEDIFERENTEleftMASMENOSleftPORDIVIDEAND DIFERENTE DIVIDE ENTERO ID IGUALQUE MAS MAYOR MAYORIGUAL MENOR MENORIGUAL MENOS NOT OR PARDER PARIZQ POR VFALSE VTRUEINICIO : PROR PROR : PROR OR PRAND\n            | PRAND PRAND : PRAND AND LOGICUNIT\n            | LOGICUNITLOGICUNIT : NOT LOGICUNIT\n            | PARIZQ PROR PARDER\n            | REL\n            | VTRUE\n            | VFALSEREL : S MAYOR S\n            | S MENOR S \n            | S MAYORIGUAL S\n            | S MENORIGUAL S\n            | S IGUALQUE S\n            | S DIFERENTE S\n            | PARIZQ REL PARDER\n            | SS : EE : E MAS T\n         | E MENOS T \n         | TT : T POR F\n         | T DIVIDE F \n         | FF : PARIZQ E PARDER\n         | ID\n         | ENTERO'
     
-_lr_action_items = {'NOT':([0,2,3,],[2,2,2,]),'PARIZQ':([0,2,3,17,18,19,20,21,22,23,24,25,26,31,],[3,3,3,31,31,31,31,31,31,31,31,31,31,31,]),'VTRUE':([0,2,3,],[5,5,5,]),'VFALSE':([0,2,3,],[6,6,6,]),'ID':([0,2,3,17,18,19,20,21,22,23,24,25,26,31,],[11,11,11,11,11,11,11,11,11,11,11,11,11,11,]),'ENTERO':([0,2,3,17,18,19,20,21,22,23,24,25,26,31,],[12,12,12,12,12,12,12,12,12,12,12,12,12,12,]),'$end':([1,4,5,6,7,8,9,10,11,12,13,27,28,29,30,32,33,34,35,36,37,38,39,40,],[0,-3,-4,-5,-13,-14,-17,-20,-22,-23,-1,-2,-12,-21,-6,-7,-8,-9,-10,-11,-15,-16,-18,-19,]),'PARDER':([4,5,6,7,8,9,10,11,12,13,14,15,16,27,28,29,30,32,33,34,35,36,37,38,39,40,41,],[-3,-4,-5,-13,-14,-17,-20,-22,-23,-1,27,28,29,-2,-12,-21,-6,-7,-8,-9,-10,-11,-15,-16,-18,-19,29,]),'MAYOR':([7,8,9,10,11,12,16,29,37,38,39,40,],[17,-14,-17,-20,-22,-23,-14,-21,-15,-16,-18,-19,]),'MENOR':([7,8,9,10,11,12,16,29,37,38,39,40,],[18,-14,-17,-20,-22,-23,-14,-21,-15,-16,-18,-19,]),'MAYORIGUAL':([7,8,9,10,11,12,16,29,37,38,39,40,],[19,-14,-17,-20,-22,-23,-14,-21,-15,-16,-18,-19,]),'MENORIGUAL':([7,8,9,10,11,12,16,29,37,38,39,40,],[20,-14,-17,-20,-22,-23,-14,-21,-15,-16,-18,-19,]),'IGUALQUE':([7,8,9,10,11,12,16,29,37,38,39,40,],[21,-14,-17,-20,-22,-23,-14,-21,-15,-16,-18,-19,]),'DIFERENTE':([7,8,9,10,11,12,16,29,37,38,39,40,],[22,-14,-17,-20,-22,-23,-14,-21,-15,-16,-18,-19,]),'MAS':([8,9,10,11,12,16,29,37,38,39,40,41,],[23,-17,-20,-22,-23,23,-21,-15,-16,-18,-19,23,]),'MENOS':([8,9,10,11,12,16,29,37,38,39,40,41,],[24,-17,-20,-22,-23,24,-21,-15,-16,-18,-19,24,]),'POR':([9,10,11,12,29,37,38,39,40,],[25,-20,-22,-23,-21,25,25,-18,-19,]),'DIVIDE':([9,10,11,12,29,37,38,39,40,],[26,-20,-22,-23,-21,26,26,-18,-19,]),}
+_lr_action_items = {'NOT':([0,5,6,16,17,19,],[5,5,5,5,5,5,]),'PARIZQ':([0,5,6,16,17,19,23,24,25,26,27,28,29,30,31,32,39,],[6,6,19,6,6,19,39,39,39,39,39,39,39,39,39,39,39,]),'VTRUE':([0,5,6,16,17,19,],[8,8,8,8,8,8,]),'VFALSE':([0,5,6,16,17,19,],[9,9,9,9,9,9,]),'ID':([0,5,6,16,17,19,23,24,25,26,27,28,29,30,31,32,39,],[14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,]),'ENTERO':([0,5,6,16,17,19,23,24,25,26,27,28,29,30,31,32,39,],[15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,]),'$end':([1,2,3,4,7,8,9,10,11,12,13,14,15,18,33,34,35,36,37,38,40,41,42,43,44,45,46,47,48,],[0,-1,-3,-5,-8,-9,-10,-18,-19,-22,-25,-27,-28,-6,-2,-4,-7,-17,-26,-11,-12,-13,-14,-15,-16,-20,-21,-23,-24,]),'OR':([2,3,4,7,8,9,10,11,12,13,14,15,18,20,21,22,33,34,35,36,37,38,40,41,42,43,44,45,46,47,48,],[16,-3,-5,-8,-9,-10,-18,-19,-22,-25,-27,-28,-6,16,-8,-19,-2,-4,-7,-17,-26,-11,-12,-13,-14,-15,-16,-20,-21,-23,-24,]),'PARDER':([3,4,7,8,9,10,11,12,13,14,15,18,20,21,22,33,34,35,36,37,38,40,41,42,43,44,45,46,47,48,49,],[-3,-5,-8,-9,-10,-18,-19,-22,-25,-27,-28,-6,35,36,37,-2,-4,-7,-17,-26,-11,-12,-13,-14,-15,-16,-20,-21,-23,-24,37,]),'AND':([3,4,7,8,9,10,11,12,13,14,15,18,21,22,33,34,35,36,37,38,40,41,42,43,44,45,46,47,48,],[17,-5,-8,-9,-10,-18,-19,-22,-25,-27,-28,-6,-8,-19,17,-4,-7,-17,-26,-11,-12,-13,-14,-15,-16,-20,-21,-23,-24,]),'MAYOR':([10,11,12,13,14,15,22,37,45,46,47,48,],[23,-19,-22,-25,-27,-28,-19,-26,-20,-21,-23,-24,]),'MENOR':([10,11,12,13,14,15,22,37,45,46,47,48,],[24,-19,-22,-25,-27,-28,-19,-26,-20,-21,-23,-24,]),'MAYORIGUAL':([10,11,12,13,14,15,22,37,45,46,47,48,],[25,-19,-22,-25,-27,-28,-19,-26,-20,-21,-23,-24,]),'MENORIGUAL':([10,11,12,13,14,15,22,37,45,46,47,48,],[26,-19,-22,-25,-27,-28,-19,-26,-20,-21,-23,-24,]),'IGUALQUE':([10,11,12,13,14,15,22,37,45,46,47,48,],[27,-19,-22,-25,-27,-28,-19,-26,-20,-21,-23,-24,]),'DIFERENTE':([10,11,12,13,14,15,22,37,45,46,47,48,],[28,-19,-22,-25,-27,-28,-19,-26,-20,-21,-23,-24,]),'MAS':([11,12,13,14,15,22,37,45,46,47,48,49,],[29,-22,-25,-27,-28,29,-26,-20,-21,-23,-24,29,]),'MENOS':([11,12,13,14,15,22,37,45,46,47,48,49,],[30,-22,-25,-27,-28,30,-26,-20,-21,-23,-24,30,]),'POR':([12,13,14,15,37,45,46,47,48,],[31,-25,-27,-28,-26,31,31,-23,-24,]),'DIVIDE':([12,13,14,15,37,45,46,47,48,],[32,-25,-27,-28,-26,32,32,-23,-24,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'LOGICUNIT':([0,2,3,],[1,13,14,]),'REL':([0,2,3,],[4,4,15,]),'S':([0,2,3,17,18,19,20,21,22,],[7,7,7,30,32,33,34,35,36,]),'E':([0,2,3,17,18,19,20,21,22,31,],[8,8,16,8,8,8,8,8,8,41,]),'T':([0,2,3,17,18,19,20,21,22,23,24,31,],[9,9,9,9,9,9,9,9,9,37,38,9,]),'F':([0,2,3,17,18,19,20,21,22,23,24,25,26,31,],[10,10,10,10,10,10,10,10,10,10,10,39,40,10,]),}
+_lr_goto_items = {'INICIO':([0,],[1,]),'PROR':([0,6,19,],[2,20,20,]),'PRAND':([0,6,16,19,],[3,3,33,3,]),'LOGICUNIT':([0,5,6,16,17,19,],[4,18,4,4,34,4,]),'REL':([0,5,6,16,17,19,],[7,7,21,7,7,21,]),'S':([0,5,6,16,17,19,23,24,25,26,27,28,],[10,10,10,10,10,10,38,40,41,42,43,44,]),'E':([0,5,6,16,17,19,23,24,25,26,27,28,39,],[11,11,22,11,11,22,11,11,11,11,11,11,49,]),'T':([0,5,6,16,17,19,23,24,25,26,27,28,29,30,39,],[12,12,12,12,12,12,12,12,12,12,12,12,45,46,12,]),'F':([0,5,6,16,17,19,23,24,25,26,27,28,29,30,31,32,39,],[13,13,13,13,13,13,13,13,13,13,13,13,13,13,47,48,13,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,28 +26,33 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> LOGICUNIT","S'",1,None,None,None),
-  ('LOGICUNIT -> NOT LOGICUNIT','LOGICUNIT',2,'p_LOGICUNIT','Parser.py',51),
-  ('LOGICUNIT -> PARIZQ LOGICUNIT PARDER','LOGICUNIT',3,'p_LOGICUNIT','Parser.py',52),
-  ('LOGICUNIT -> REL','LOGICUNIT',1,'p_LOGICUNIT','Parser.py',53),
-  ('LOGICUNIT -> VTRUE','LOGICUNIT',1,'p_LOGICUNIT','Parser.py',54),
-  ('LOGICUNIT -> VFALSE','LOGICUNIT',1,'p_LOGICUNIT','Parser.py',55),
-  ('REL -> S MAYOR S','REL',3,'p_REL','Parser.py',91),
-  ('REL -> S MENOR S','REL',3,'p_REL','Parser.py',92),
-  ('REL -> S MAYORIGUAL S','REL',3,'p_REL','Parser.py',93),
-  ('REL -> S MENORIGUAL S','REL',3,'p_REL','Parser.py',94),
-  ('REL -> S IGUALQUE S','REL',3,'p_REL','Parser.py',95),
-  ('REL -> S DIFERENTE S','REL',3,'p_REL','Parser.py',96),
-  ('REL -> PARIZQ REL PARDER','REL',3,'p_REL','Parser.py',97),
-  ('REL -> S','REL',1,'p_REL','Parser.py',98),
-  ('S -> E','S',1,'p_S','Parser.py',158),
-  ('E -> E MAS T','E',3,'p_E','Parser.py',168),
-  ('E -> E MENOS T','E',3,'p_E','Parser.py',169),
-  ('E -> T','E',1,'p_E','Parser.py',170),
-  ('T -> T POR F','T',3,'p_T','Parser.py',192),
-  ('T -> T DIVIDE F','T',3,'p_T','Parser.py',193),
-  ('T -> F','T',1,'p_T','Parser.py',194),
-  ('F -> PARIZQ E PARDER','F',3,'p_F','Parser.py',217),
-  ('F -> ID','F',1,'p_F','Parser.py',218),
-  ('F -> ENTERO','F',1,'p_F','Parser.py',219),
+  ("S' -> INICIO","S'",1,None,None,None),
+  ('INICIO -> PROR','INICIO',1,'p_Incio','Parser.py',22),
+  ('PROR -> PROR OR PRAND','PROR',3,'p_PROR','Parser.py',26),
+  ('PROR -> PRAND','PROR',1,'p_PROR','Parser.py',27),
+  ('PRAND -> PRAND AND LOGICUNIT','PRAND',3,'p_PRAND','Parser.py',72),
+  ('PRAND -> LOGICUNIT','PRAND',1,'p_PRAND','Parser.py',73),
+  ('LOGICUNIT -> NOT LOGICUNIT','LOGICUNIT',2,'p_LOGICUNIT','Parser.py',121),
+  ('LOGICUNIT -> PARIZQ PROR PARDER','LOGICUNIT',3,'p_LOGICUNIT','Parser.py',122),
+  ('LOGICUNIT -> REL','LOGICUNIT',1,'p_LOGICUNIT','Parser.py',123),
+  ('LOGICUNIT -> VTRUE','LOGICUNIT',1,'p_LOGICUNIT','Parser.py',124),
+  ('LOGICUNIT -> VFALSE','LOGICUNIT',1,'p_LOGICUNIT','Parser.py',125),
+  ('REL -> S MAYOR S','REL',3,'p_REL','Parser.py',177),
+  ('REL -> S MENOR S','REL',3,'p_REL','Parser.py',178),
+  ('REL -> S MAYORIGUAL S','REL',3,'p_REL','Parser.py',179),
+  ('REL -> S MENORIGUAL S','REL',3,'p_REL','Parser.py',180),
+  ('REL -> S IGUALQUE S','REL',3,'p_REL','Parser.py',181),
+  ('REL -> S DIFERENTE S','REL',3,'p_REL','Parser.py',182),
+  ('REL -> PARIZQ REL PARDER','REL',3,'p_REL','Parser.py',183),
+  ('REL -> S','REL',1,'p_REL','Parser.py',184),
+  ('S -> E','S',1,'p_S','Parser.py',238),
+  ('E -> E MAS T','E',3,'p_E','Parser.py',248),
+  ('E -> E MENOS T','E',3,'p_E','Parser.py',249),
+  ('E -> T','E',1,'p_E','Parser.py',250),
+  ('T -> T POR F','T',3,'p_T','Parser.py',272),
+  ('T -> T DIVIDE F','T',3,'p_T','Parser.py',273),
+  ('T -> F','T',1,'p_T','Parser.py',274),
+  ('F -> PARIZQ E PARDER','F',3,'p_F','Parser.py',297),
+  ('F -> ID','F',1,'p_F','Parser.py',298),
+  ('F -> ENTERO','F',1,'p_F','Parser.py',299),
 ]

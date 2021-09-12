@@ -46,3 +46,7 @@ Institution: USAC
 ### TEST 5
 
 ![Test 5](/Corto1Project/image/Test5.png?raw=true "Test 5")
+
+### CORTO #2
+
+![CORTO 2](/Corto1Project/image/CORTO2.png?raw=true "CORTO 2")
